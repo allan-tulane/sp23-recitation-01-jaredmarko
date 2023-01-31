@@ -48,16 +48,20 @@ def _binary_search(mylist, key, left, right):
 	"""
 	
 def test_binary_search():
-	assert binary_search([1,2,3,4,5], 5) == 4
-	assert binary_search([1,2,3,4,5], 1) == 0
-	assert binary_search([1,2,3,4,5], 6) == -1
-	### TODO: add two more tests here.
-
-	###
-
+  assert binary_search([], 5) == -1
+  assert binary_search([-5, -3, -1, 1, 3, 5], -3) == 1
+  assert binary_search([1,2,3,4,5], 5) == 4
+  assert binary_search([1,2,3,4,5], 1) == 0
+  assert binary_search([1,2,3,4,5], 6) == -1
 
 def time_search(search_fn, mylist, key):
-	"""
+  import time
+  start_time = time.time()
+  result = search_fn(mylist, key)
+  end_time = time.time()
+  elapsed_time = (end_time - start_time) * 1000
+  return elapsed_time
+"""
 	Return the number of milliseconds to run this
 	search function on this list.
 
@@ -75,11 +79,18 @@ def time_search(search_fn, mylist, key):
 	  search function on this input.
 	"""
 	### TODO
-
+  
 	###
 
 def compare_search(sizes=[1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7]):
-	"""
+  result = []
+  for n in sizes:
+      mylist = list(range(int(n)))
+      linear_time = time_search(linear_search, mylist, -1)
+      binary_time = time_search(binary_search, mylist, -1)
+      result.append((n, linear_time, binary_time))
+  return result
+"""
 	Compare the running time of linear_search and binary_search
 	for input sizes as given. The key for each search should be
 	-1. The list to search for each size contains the numbers from 0 to n-1,
