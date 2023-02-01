@@ -1,7 +1,7 @@
 # CMPS 2200  Recitation 01
 
 **Name (Team Member 1):** Jared Markowitz 
-**Name (Team Member 2):**_________________________
+**Name (Team Member 2):**_Mauryan Uppalapati______________
 
 In this recitation, we will investigate asymptotic complexity. Additionally, we will get familiar with the various technologies we'll use for collaborative coding.
 
